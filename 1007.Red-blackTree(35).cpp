@@ -29,10 +29,10 @@ class Solution {
 		if (iter != rr.end()) { return iter->second; }
 		long long sum = 0;
 		for (int i = 0; i < nodes; i++) {
-			sum += blackRoot(i, height) * blackRoot(nodes - 1 - i, height) ;
+			sum += blackRoot(i, height) * blackRoot(nodes - 1 - i, height);
 			sum %= REMAINDER;
 		}
-		rr[p] = sum;
+		rr[p] = static_cast<int>(sum);
 		return sum;
 	}
 
@@ -57,7 +57,7 @@ class Solution {
 			sum += redRoot(i, height - 1) * redRoot(nodes - 1 - i, height - 1);
 			sum %= REMAINDER;
 		}
-		br[p] = sum;
+		br[p] = static_cast<int>(sum);
 		return sum;
 	}
 
@@ -80,7 +80,7 @@ public:
 		assert(internalNodes <= 500);
 		int sum = 0;
 		for (int height = 1; height <= 9; height++) {
-			sum += blackRoot(internalNodes, height);
+			sum += static_cast<int>(blackRoot(internalNodes, height));
 			sum %= REMAINDER;
 		}
 		return sum;
